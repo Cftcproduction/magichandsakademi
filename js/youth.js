@@ -257,7 +257,7 @@ $(function() {
             zoom: 12,
             scrollwheel: false,
             // EDIT: latitude and longitude to center the map
-            center: new google.maps.LatLng(34.052235, -118.243683),
+            center: new google.maps.LatLng(40.437980, 29.724280),
             styles: [{
                 "featureType": "administrative",
                 "elementType": "all",
@@ -342,7 +342,11 @@ $(function() {
                 }]
             }]
         };
-        var contentString = "<h1>This is Youth.</h1>";
+        var mapElement = document.getElementById("map");
+        if (!mapElement || mapElement.querySelector("iframe")) {
+            return;
+        }
+        var contentString = "<h1>MAGICHANDS Akademi</h1><p>Eşrefzade Mahallesi Alaaddin Mısri Sok No:5/A, İznik / Bursa</p><p><a href="tel:+905322161101">0532 216 11 01</a></p>";
         var infowindow = new google.maps.InfoWindow({
             content: contentString
         });
@@ -350,9 +354,9 @@ $(function() {
         var map = new google.maps.Map(mapElement, mapOptions);
         var marker = new google.maps.Marker({
             // EDIT: latitude and longitude to center the marker
-            position: new google.maps.LatLng(34.052235, -118.243683),
+            position: new google.maps.LatLng(40.437980, 29.724280),
             map: map,
-            title: "Youth",
+            title: "MAGICHANDS Akademi",
             icon: "img/location-icon.png"
         });
         infowindow.open(map, marker);

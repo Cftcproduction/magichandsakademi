@@ -260,7 +260,10 @@ $(function () {
   });
 
   // 14. google maps POSITION
-  google.maps.event.addDomListener(window, "load", init);
+  if (typeof google === "undefined" || !google.maps) {
+    return;
+  }
+  window.addEventListener("load", init);
   function init() {
     var mapOptions = {
       zoom: 12,
